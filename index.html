@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f2ede4">
+<meta name="description" content="Mavéa Boutique Stays — a slower, more soulful way to experience Hiriketiya, Sri Lanka.">
+<title>Mavéa — Stay a little longer · Sri Lanka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&family=Italianno&display=swap" rel="stylesheet">
+<style>
+:root{
+ --pearl:#f2ede4;--ivory:#faf7f0;--shell:#d8c6b1;--sand:#b9a58b;
+ --olive:#777960;--olive-dark:#535844;--cacao:#5b4938;--earth:#302c26;
+ --champagne:#b69b72;--line:rgba(77,62,46,.17);--muted:#817564;
+ --serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;
+ --script:"Italianno",cursive;--gutter:clamp(22px,6vw,92px);--max:1440px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{margin:0;background:var(--pearl);color:var(--earth);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--olive);color:var(--ivory)}
+/* quiet, consistent image treatment */
+.photo{position:relative;overflow:hidden;background:#d0c3b1}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .7s}
+.photo:hover img{transform:scale(1.045)}
+.photo:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(37,31,24,.02),rgba(37,31,24,.12))}
+.kicker{font-size:9px;line-height:1.6;letter-spacing:.27em;text-transform:uppercase;color:var(--olive-dark);font-weight:500}
+.script{font:36px/1 var(--script);color:var(--olive)}
+.display{font:400 clamp(43px,6.2vw,82px)/.91 var(--serif);letter-spacing:.015em;color:var(--cacao);margin:14px 0 22px}
+.copy{font-size:13px;line-height:2;color:var(--muted);max-width:570px}
+.rule{height:1px;background:var(--line);border:0}
+.eyebrow-light{color:#f3eadd}
+.button{display:inline-flex;align-items:center;gap:22px;padding:15px 0;border:0;border-bottom:1px solid currentColor;background:none;font-size:9px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:gap .25s}
+.button:hover{gap:31px}
+.button .arrow{font-size:16px;line-height:0}
+.button-filled{display:inline-flex;align-items:center;justify-content:center;gap:22px;padding:16px 22px;background:var(--olive-dark);color:var(--ivory);border:1px solid var(--olive-dark);font-size:9px;letter-spacing:.18em;text-transform:uppercase;transition:background .25s,border .25s}
+.button-filled:hover{background:var(--cacao);border-color:var(--cacao)}
+/* header */
+.site-header{height:88px;position:sticky;top:0;z-index:50;background:rgba(242,237,228,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(91,73,56,.12)}
+.header-inner{height:100%;max-width:var(--max);margin:auto;padding:0 var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:30px}
+.brand{display:flex;align-items:center;gap:12px;flex:none}
+.brand-symbol{width:38px;height:42px;color:var(--cacao)}
+.brand-word{font:500 29px/.83 var(--serif);letter-spacing:.16em;color:var(--cacao)}
+.brand-caption{font-size:7px;letter-spacing:.31em;margin-top:8px;color:var(--cacao);white-space:nowrap}
+.main-nav{display:flex;align-items:center;justify-content:center;gap:clamp(13px,2.1vw,30px)}
+.main-nav a{position:relative;padding:12px 0 9px;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#665745;white-space:nowrap}
+.main-nav a:after{content:"";position:absolute;bottom:3px;left:0;width:0;height:1px;background:var(--olive);transition:width .3s}
+.main-nav a:hover:after,.main-nav a.active:after{width:100%}
+.header-note{font:italic 19px var(--serif);color:var(--olive);white-space:nowrap}
+.menu-toggle{display:none;border:0;background:none;font-size:24px;cursor:pointer;padding:8px}
+/* pages and transitions */
+.page{display:none;animation:pageIn .55s ease both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* hero */
+.hero{height:min(790px,calc(100svh - 88px));min-height:620px;position:relative;isolation:isolate;overflow:hidden;background:#75624c}
+.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 54%;z-index:-2;animation:heroSettle 2s ease both}
+@keyframes heroSettle{from{transform:scale(1.07);filter:brightness(.8)}to{transform:scale(1);filter:brightness(.82)}}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(27,26,20,.45),rgba(27,26,20,.08) 72%),linear-gradient(0deg,rgba(25,25,19,.42),transparent 58%)}
+.hero-inner{height:100%;max-width:var(--max);margin:auto;padding:0 var(--gutter) 8.2%;display:flex;flex-direction:column;justify-content:flex-end;color:var(--ivory)}
+.hero-overline{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#eee2d0}
+.hero-title{font:300 clamp(76px,12vw,158px)/.76 var(--serif);letter-spacing:.035em;margin:25px 0 24px;color:#fbf6ed}
+.hero-title em{font-weight:300}
+.hero-description{font:italic clamp(19px,2vw,25px)/1.4 var(--serif);max-width:490px;color:#f3e8d8;margin:0 0 31px}
+.hero-bottom{display:flex;align-items:center;gap:35px;flex-wrap:wrap}
+.hero .button{color:var(--ivory)}
+.hero-index{font-size:8px;letter-spacing:.2em;color:rgba(255,250,241,.75)}
+.hero-side-note{position:absolute;right:var(--gutter);top:50%;writing-mode:vertical-rl;transform:translateY(-50%);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,250,241,.8)}
+/* home editorial */
+.welcome{max-width:var(--max);margin:auto;padding:clamp(82px,11vw,150px) var(--gutter) clamp(75px,10vw,130px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(45px,10vw,150px);align-items:start}
+.welcome-aside{padding-top:15px}
+.welcome-aside .script{font-size:40px}
+.welcome-main .display{max-width:720px}
+.welcome-main .copy{max-width:590px}
+.welcome-foot{display:flex;align-items:center;gap:18px;margin-top:32px;color:var(--olive);font-size:8px;letter-spacing:.2em;text-transform:uppercase}
+.welcome-foot:before{content:"";width:54px;height:1px;background:var(--champagne)}
+/* split feature */
+.split-feature{display:grid;grid-template-columns:1.06fr .94fr;min-height:580px;background:#e6ded2}
+.split-feature .photo{min-height:580px}
+.split-copy{align-self:center;padding:clamp(45px,8vw,110px) clamp(35px,8vw,120px)}
+.split-copy .display{font-size:clamp(46px,5.4vw,72px)}
+.split-copy .copy{margin-bottom:30px}
+/* editorial card sections */
+.section-intro{max-width:var(--max);margin:auto;padding:clamp(80px,10vw,125px) var(--gutter) 42px;display:flex;justify-content:space-between;align-items:end;gap:40px}
+.section-intro .display{font-size:clamp(44px,5vw,68px);margin-bottom:0}
+.section-intro .copy{max-width:330px;font-size:12px}
+.editorial-grid{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) clamp(85px,10vw,135px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.2vw,30px)}
+.editorial-card{min-width:0}
+.editorial-card:nth-child(2){margin-top:55px}
+.editorial-card:nth-child(3){margin-top:110px}
+.editorial-card .photo{height:clamp(250px,31vw,420px);border-radius:48% 48% 0 0 / 13% 13% 0 0}
+.editorial-card:nth-child(2) .photo{border-radius:0 0 48% 48% / 0 0 13% 13%}
+.editorial-card:nth-child(3) .photo{border-radius:48% 48% 0 0 / 13% 13% 0 0}
+.card-meta{display:flex;justify-content:space-between;gap:15px;margin-top:20px;color:var(--olive);font-size:8px;letter-spacing:.2em;text-transform:uppercase}
+.editorial-card h3{font:400 clamp(29px,3vw,39px)/1 var(--serif);color:var(--cacao);margin:11px 0}
+.editorial-card p{font-size:11px;line-height:1.9;color:var(--muted);max-width:340px;margin:0 0 15px}
+.editorial-card .button{font-size:8px}
+/* quote strip */
+.quote-strip{padding:85px 20px 95px;background:var(--olive-dark);color:var(--pearl);text-align:center;position:relative;overflow:hidden}
+.quote-strip:before,.quote-strip:after{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(242,237,228,.15);border-radius:50%}
+.quote-strip:before{left:-120px;top:-125px}.quote-strip:after{right:-110px;bottom:-155px}
+.quote-strip .script{color:#d7c5aa;font-size:42px}
+.quote-strip blockquote{font:300 clamp(32px,5vw,59px)/1.1 var(--serif);max-width:850px;margin:17px auto 0}
+/* interior banner */
+.page-hero{height:clamp(390px,53vw,620px);position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#78664f}
+.page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.78);transform:scale(1.01)}
+.page-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(29,27,21,.57),transparent 75%),linear-gradient(90deg,rgba(29,27,21,.18),transparent 70%)}
+.page-hero-content{position:relative;z-index:1;width:100%;max-width:var(--max);margin:auto;padding:0 var(--gutter) 7%;color:var(--ivory)}
+.page-hero-content .kicker{color:#e7d8c3}
+.page-hero h1{font:300 clamp(60px,9vw,112px)/.85 var(--serif);letter-spacing:.025em;margin:23px 0 14px;color:#fff9f0}
+.page-hero p{font:italic 21px var(--serif);margin:0;color:#f0e4d3}
+.page-lead{max-width:var(--max);margin:auto;padding:85px var(--gutter) 60px;display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(35px,8vw,120px)}
+.page-lead .script{font-size:40px}
+.page-lead .display{font-size:clamp(42px,5vw,65px);max-width:650px}
+.page-lead .copy{max-width:620px}
+.guide-grid{max-width:var(--max);margin:auto;padding:0 var(--gutter) 110px;display:grid;grid-template-columns:repeat(3,1fr);gap:35px 24px}
+.guide-card .photo{height:clamp(230px,26vw,340px);border-radius:2px}
+.guide-card:nth-child(3n+2){margin-top:38px}
+.guide-card:nth-child(3n){margin-top:76px}
+.guide-card .card-meta{margin-top:17px}
+.guide-card h2{font:400 34px/1 var(--serif);color:var(--cacao);margin:10px 0}
+.guide-card p{font-size:11px;line-height:1.95;color:var(--muted);margin:0;max-width:360px}
+.guide-note{max-width:var(--max);margin:-30px auto 90px;padding:0 var(--gutter);font-size:10px;line-height:1.8;color:#897c69;text-align:center}
+/* services */
+.service-intro{max-width:var(--max);margin:auto;padding:85px var(--gutter) 45px;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}
+.service-intro .display{font-size:clamp(42px,5vw,65px)}
+.service-list{max-width:1120px;margin:0 auto;padding:0 var(--gutter) 115px}
+.service-item{display:grid;grid-template-columns:75px 1fr 150px;gap:24px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}
+.service-item:last-child{border-bottom:1px solid var(--line)}
+.service-number{font:300 35px var(--serif);color:var(--champagne)}
+.service-item h2{font:400 31px/1 var(--serif);color:var(--cacao);margin:0 0 8px}
+.service-item p{font-size:11px;line-height:1.8;color:var(--muted);margin:0;max-width:610px}
+.service-item .button{justify-self:end;font-size:8px}
+/* review */
+.review-section{max-width:var(--max);margin:auto;padding:90px var(--gutter) 120px}
+.review-card{background:#e5dccf;padding:clamp(45px,8vw,100px);text-align:center;position:relative;overflow:hidden}
+.review-card:before{content:"";position:absolute;width:290px;height:290px;border:1px solid rgba(91,73,56,.13);border-radius:50%;top:-180px;left:-100px}
+.review-card:after{content:"";position:absolute;width:230px;height:230px;border:1px solid rgba(91,73,56,.13);border-radius:50%;bottom:-150px;right:-75px}
+.review-card .script{font-size:43px}
+.review-card .display{font-size:clamp(43px,6vw,72px);margin:14px auto 20px}
+.review-card .copy{margin:0 auto 30px}
+.review-card .button-filled{position:relative;z-index:1}
+/* footer */
+.footer{background:#34382f;color:#eee7dc;padding:66px var(--gutter) 25px}
+.footer-inner{max-width:var(--max);margin:auto}
+.footer-main{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:start;padding-bottom:54px}
+.footer-logo{font:400 42px/.9 var(--serif);letter-spacing:.17em}
+.footer-sub{font-size:7px;letter-spacing:.3em;margin-top:10px;color:#d5c7b5}
+.footer-mantra{font:italic 29px/1.1 var(--serif);color:#d6c3a7}
+.footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px}
+.footer-nav a{font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:#e0d6c8;transition:color .2s}
+.footer-nav a:hover{color:#c9ad82}
+.footer-bottom{border-top:1px solid rgba(245,238,227,.2);padding-top:18px;display:flex;justify-content:space-between;gap:20px;font-size:7px;letter-spacing:.19em;text-transform:uppercase;color:#c4b9a9}
+/* scroll reveals */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media(max-width:1050px){.header-note{display:none}.main-nav{gap:14px}.main-nav a{font-size:8px;letter-spacing:.1em}.brand-word{font-size:27px}.welcome{gap:55px}.footer-main{grid-template-columns:1fr 1fr}.footer-mantra{display:none}}
+@media(max-width:760px){
+ .site-header{height:76px}.header-inner{padding:0 22px}.brand-symbol{width:32px;height:36px}.brand-word{font-size:26px}.brand-caption{font-size:6px}
+ .menu-toggle{display:block}.main-nav{display:none;position:fixed;top:76px;left:0;right:0;height:calc(100svh - 76px);background:var(--pearl);padding:35px 30px 70px;align-items:flex-start;justify-content:flex-start;flex-direction:column;gap:0;overflow:auto}
+ .main-nav.open{display:flex}.main-nav a{font:400 33px/1.3 var(--serif);letter-spacing:.02em;text-transform:none;padding:11px 0;border-bottom:1px solid var(--line);width:100%}.main-nav a:after{display:none}
+ .hero{height:calc(88svh - 76px);min-height:590px}.hero-inner{padding:0 26px 15%}.hero-title{font-size:clamp(76px,18vw,120px)}.hero-side-note{right:18px;font-size:7px}
+ .welcome{grid-template-columns:1fr;gap:20px;padding:75px 27px}.welcome-aside{padding:0}.welcome-main .display{font-size:clamp(48px,12vw,70px)}
+ .split-feature{grid-template-columns:1fr}.split-feature .photo{min-height:380px;height:380px}.split-copy{padding:58px 28px 70px}
+ .section-intro{padding:75px 27px 32px;display:block}.section-intro .copy{margin-top:18px}
+ .editorial-grid{grid-template-columns:1fr;padding:0 27px 80px;gap:38px}.editorial-card:nth-child(2),.editorial-card:nth-child(3){margin-top:0}.editorial-card .photo{height:390px;border-radius:45% 45% 0 0 / 12% 12% 0 0!important}
+ .page-hero{height:430px}.page-hero-content{padding:0 27px 12%}.page-hero h1{font-size:clamp(57px,13vw,82px)}
+ .page-lead{grid-template-columns:1fr;gap:18px;padding:65px 27px 45px}.page-lead .display{font-size:50px}
+ .guide-grid{grid-template-columns:1fr;padding:0 27px 85px;gap:36px}.guide-card:nth-child(3n+2),.guide-card:nth-child(3n){margin-top:0}.guide-card .photo{height:350px}.guide-card h2{font-size:34px}
+ .service-intro{grid-template-columns:1fr;gap:15px;padding:65px 27px 35px}.service-list{padding:0 27px 85px}.service-item{grid-template-columns:42px 1fr;gap:14px;padding:23px 0}.service-number{font-size:28px}.service-item h2{font-size:27px}.service-item .button{grid-column:2;justify-self:start;margin-top:3px}
+ .review-section{padding:65px 22px 85px}.review-card{padding:58px 24px}
+ .footer{padding:55px 27px 22px}.footer-main{grid-template-columns:1fr 1fr;gap:35px 20px}.footer-nav{grid-column:1/-1}.footer-bottom{flex-direction:column;gap:10px}
+}
+@media(max-width:390px){.hero-title{font-size:72px}.footer-main{grid-template-columns:1fr}.footer-nav{grid-column:auto}}
+</style>
+</head>
+<body>
+<header class="site-header">
+ <div class="header-inner">
+  <a class="brand" href="#home" aria-label="Mavéa home">
+   <svg class="brand-symbol" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true">
+    <path d="M7 43C9 24 18 10 32 7c14 3 23 17 25 36-9 8-41 8-50 0Z"/>
+    <path d="M11 41 32 10l21 31M18 45l14-35 14 35M25 48l7-38 7 38M7 43c10 8 40 8 50 0"/>
+    <path d="M21 49c3-7 7-11 11-11s8 4 11 11"/><path d="M25 48c1-5 3-8 7-8s6 3 7 8"/>
+    <circle cx="32" cy="45" r="4.2" fill="currentColor" stroke="none"/>
+   </svg>
+   <span><span class="brand-word">MAVÉA</span><span class="brand-caption">BOUTIQUE STAYS · SRI LANKA</span></span>
+  </a>
+  <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+   <a href="#explore" data-page="explore">Explore Hiriketiya</a>
+   <a href="#eat" data-page="eat">Eat & Drink</a>
+   <a href="#things" data-page="things">Things to do</a>
+   <a href="#services" data-page="services">Guest Services</a>
+   <a href="#specials" data-page="specials">Mavéa Specials</a>
+   <a href="#review" data-page="review">Leave a Review</a>
+  </nav>
+  <div class="header-note">Stay a little longer.</div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+ </div>
+</header>
+
+<main>
+<section class="page active" id="home">
+ <section class="hero">
+  <img class="hero-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2400&q=90" alt="Sunlit tropical ocean and rolling waves">
+  <div class="hero-inner">
+   <div class="hero-overline">BOUTIQUE STAYS · HIRIKETIYA · SRI LANKA</div>
+   <h1 class="hero-title">Stay a little<br><em>longer.</em></h1>
+   <p class="hero-description">That creative coastal place where everyone ends up staying longer than planned.</p>
+   <div class="hero-bottom"><a class="button" href="#explore">Discover Hiriketiya <span class="arrow">↗</span></a><span class="hero-index">06°00' N &nbsp; 80°43' E</span></div>
+  </div>
+  <div class="hero-side-note">Slow mornings · Salty skin · Creative souls</div>
+ </section>
+
+ <section class="welcome reveal">
+  <div class="welcome-aside"><div class="script">Ayubowan, welcome</div><div class="kicker" style="margin-top:16px">A NOTE FROM MAVÉA</div></div>
+  <div class="welcome-main"><h2 class="display">A softer kind<br>of somewhere.</h2><p class="copy">Some places make you want to see everything. Hiriketiya makes you want to stay a little longer. Follow the light, find your favourite table, take the long way back. This is your little guide to the coast — thoughtfully gathered by Mavéa.</p><div class="welcome-foot">Boutique stays · Creative souls · Sri Lanka</div></div>
+ </section>
+
+ <section class="split-feature">
+  <div class="photo"><img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1500&q=88" alt="Tropical retreat pool framed by lush greenery" loading="lazy"></div>
+  <div class="split-copy reveal"><div class="kicker">THE MAVÉA STATE OF MIND</div><h2 class="display">Come for the coast.<br>Stay for the feeling.</h2><p class="copy">Bare feet, open afternoons and a little room for the unexpected. Whether you’re here to surf, make, wander or simply be, let the days unfold at their own pace.</p><a class="button" href="#things">Find your rhythm <span class="arrow">↗</span></a></div>
+ </section>
+
+ <section class="section-intro reveal"><div><div class="kicker">A LITTLE LOCAL KNOW-HOW</div><h2 class="display">Make yourself<br>at home.</h2></div><p class="copy">The places, people and little experiences that make this corner of Sri Lanka feel special.</p></section>
+ <section class="editorial-grid">
+  <article class="editorial-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1100&q=88" alt="Surfer enjoying a wave in tropical water" loading="lazy"></div><div class="card-meta"><span>01 / Explore</span><span>Coast & beyond</span></div><h3>Find your coastline.</h3><p>Beach days, ocean views and the little places you’ll want to return to.</p><a class="button" href="#explore">Explore the area <span class="arrow">↗</span></a></article>
+  <article class="editorial-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1100&q=88" alt="Warm intimate restaurant interior" loading="lazy"></div><div class="card-meta"><span>02 / Eat & drink</span><span>Good things served</span></div><h3>Follow your appetite.</h3><p>From the first coffee to a dinner that turns into a whole evening.</p><a class="button" href="#eat">Explore our food guide <span class="arrow">↗</span></a></article>
+  <article class="editorial-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1100&q=88" alt="Quiet yoga and wellness moment" loading="lazy"></div><div class="card-meta"><span>03 / Experience</span><span>Move & unwind</span></div><h3>Make a day of it.</h3><p>Surf, stretch, create, explore — or give yourself permission to do less.</p><a class="button" href="#things">Find an experience <span class="arrow">↗</span></a></article>
+ </section>
+ <section class="quote-strip"><div class="script">A little reminder</div><blockquote>“The best days are the ones<br>you don’t need to rush.”</blockquote></section>
+</section>
+
+<section class="page" id="explore">
+ <section class="page-hero"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2200&q=90" alt="Ocean and tropical coast in warm afternoon light"><div class="page-hero-content"><div class="kicker">SALT IN YOUR HAIR · SAND BETWEEN YOUR TOES</div><h1>Explore Hiriketiya</h1><p>Little discoveries, just around the corner.</p></div></section>
+ <section class="page-lead"><div><div class="script">Take the scenic route</div><div class="kicker">THE SOUTH COAST, SLOWLY</div></div><div><h2 class="display">Let the coast<br>lead the way.</h2><p class="copy">A curved bay, warm evenings and roads that reward a little wandering. Make time for the familiar favourites — and leave room for somewhere you haven’t found yet.</p></div></section>
+ <section class="guide-grid">
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1100&q=88" alt="Tropical surf beach" loading="lazy"></div><div class="card-meta"><span>01 / The local bay</span><span>Ocean time</span></div><h2>Hiriketiya Beach</h2><p>A beautiful crescent bay with a laid-back surf scene. Come early for a quieter swim or stay as the beach shifts into evening.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1100&q=88" alt="Golden sunset over the sea" loading="lazy"></div><div class="card-meta"><span>02 / Golden hour</span><span>Chase the light</span></div><h2>Sunset spots</h2><p>Find an open view, order something cold and give the day permission to end slowly.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1100&q=88" alt="Quiet tropical beach with palms" loading="lazy"></div><div class="card-meta"><span>03 / Off the path</span><span>Little discoveries</span></div><h2>Hidden corners</h2><p>Take a tuk-tuk or wander down a side road. The best discoveries are often the ones you didn’t plan.</p></article>
+ </section>
+ <p class="guide-note">Ask your Mavéa host for current local tips, directions and the best time to visit.</p>
+</section>
+
+<section class="page" id="eat">
+ <section class="page-hero"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2200&q=90" alt="Warm restaurant with softly lit tables"><div class="page-hero-content"><div class="kicker">GOOD FOOD · NO RUSH</div><h1>Eat & Drink</h1><p>For the first coffee and the last little bite.</p></div></section>
+ <section class="page-lead"><div><div class="script">A table worth lingering at</div><div class="kicker">A TASTE OF HIRIKETIYA</div></div><div><h2 class="display">Come hungry.<br>Leave happy.</h2><p class="copy">One coffee becomes brunch. Brunch becomes a long lunch. These are the moments we love about eating around the south coast — relaxed tables, fresh flavours and good company.</p></div></section>
+ <section class="guide-grid">
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1100&q=88" alt="Freshly brewed coffee" loading="lazy"></div><div class="card-meta"><span>01 / Slow mornings</span><span>Coffee & breakfast</span></div><h2>The morning ritual</h2><p>For a proper coffee, fresh fruit, something warm and an easy start to the day.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1100&q=88" alt="Fresh colourful lunch" loading="lazy"></div><div class="card-meta"><span>02 / Long lunches</span><span>Fresh & local</span></div><h2>A midday pause</h2><p>Bright bowls, local flavours, seafood and lunches that turn into lovely conversations.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=1100&q=88" alt="Beautiful dinner spread" loading="lazy"></div><div class="card-meta"><span>03 / After sunset</span><span>Dinner & drinks</span></div><h2>Stay for supper</h2><p>Cosy tables, a little atmosphere and somewhere to settle in for the evening.</p></article>
+ </section>
+ <p class="guide-note">Restaurant names, locations and current opening details can be added once the Mavéa favourites are confirmed.</p>
+</section>
+
+<section class="page" id="things">
+ <section class="page-hero"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=2200&q=90" alt="Peaceful wellness and yoga setting"><div class="page-hero-content"><div class="kicker">MOVE · MAKE · RESTORE</div><h1>Things to do</h1><p>Make space for a little something new.</p></div></section>
+ <section class="page-lead"><div><div class="script">Your day, your rhythm</div><div class="kicker">A FEW WAYS TO FEEL GOOD</div></div><div><h2 class="display">Find your kind<br>of adventure.</h2><p class="copy">Chase a wave, find your balance, learn from a local maker or simply take the afternoon off. There’s no one right way to spend a day here.</p></div></section>
+ <section class="guide-grid">
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1100&q=88" alt="Surfer in the ocean" loading="lazy"></div><div class="card-meta"><span>01 / In the water</span><span>Ocean energy</span></div><h2>Surf</h2><p>Catch a first wave, build your confidence or simply enjoy the ocean from the shore.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1100&q=88" alt="Yoga practice in a peaceful space" loading="lazy"></div><div class="card-meta"><span>02 / Find your balance</span><span>Breathe & stretch</span></div><h2>Yoga</h2><p>Stretch, breathe and take a moment for yourself in a calm tropical setting.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1100&q=88" alt="Relaxing spa treatment" loading="lazy"></div><div class="card-meta"><span>03 / Slow down</span><span>Restore</span></div><h2>Massages</h2><p>Make time to unwind with a restorative treatment after a day in the sun.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1100&q=88" alt="Creative workshop materials" loading="lazy"></div><div class="card-meta"><span>04 / Get creative</span><span>Make something</span></div><h2>Workshops</h2><p>Explore local craft, learn a new skill or spend an afternoon making something.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1100&q=88" alt="Beautiful green landscape" loading="lazy"></div><div class="card-meta"><span>05 / A change of scene</span><span>Explore</span></div><h2>Little adventures</h2><p>Explore the south coast and let us help you find a day trip that suits your pace.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1100&q=88" alt="Friends spending time together" loading="lazy"></div><div class="card-meta"><span>06 / Good company</span><span>Connect</span></div><h2>Meet & connect</h2><p>Find a community, share a table or join something happening around Mavéa.</p></article>
+ </section>
+</section>
+
+<section class="page" id="services">
+ <section class="page-hero"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=2200&q=90" alt="Calm, thoughtfully styled boutique bedroom"><div class="page-hero-content"><div class="kicker">THE LITTLE THINGS · TAKEN CARE OF</div><h1>Guest Services</h1><p>Settle in. We’ll help with the rest.</p></div></section>
+ <section class="service-intro"><div><div class="script">Here when you need us</div><h2 class="display">A little help<br>goes a long way.</h2></div><p class="copy">Need fresh towels, a ride or a hand figuring something out? Just let your host know. We want your stay to feel easy, comfortable and entirely your own.</p></section>
+ <section class="service-list">
+  <article class="service-item"><div class="service-number">01</div><div><h2>Laundry</h2><p>Need a fresh set of clothes? Ask your host about laundry collection and turnaround.</p></div><a class="button" href="#contact">Ask your host <span class="arrow">↗</span></a></article>
+  <article class="service-item"><div class="service-number">02</div><div><h2>Transport & tuk-tuks</h2><p>Airport transfers, local rides or a little help planning your next stop along the coast.</p></div><a class="button" href="#contact">Ask your host <span class="arrow">↗</span></a></article>
+  <article class="service-item"><div class="service-number">03</div><div><h2>Extra towels & essentials</h2><p>Need extra towels or something for your room? We’re happy to help make you comfortable.</p></div><a class="button" href="#contact">Ask your host <span class="arrow">↗</span></a></article>
+  <article class="service-item"><div class="service-number">04</div><div><h2>Local help & recommendations</h2><p>From practical questions to finding your next favourite place, just reach out to the Mavéa team.</p></div><a class="button" href="#contact">Ask your host <span class="arrow">↗</span></a></article>
+ </section>
+ <div id="contact" class="quote-strip"><div class="script">We’re just around the corner</div><blockquote>Let us know what would make<br>your stay even better.</blockquote></div>
+</section>
+
+<section class="page" id="specials">
+ <section class="page-hero"><img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=2200&q=90" alt="Sunlight moving across the ocean"><div class="page-hero-content"><div class="kicker">A LITTLE SOMETHING EXTRA</div><h1>Mavéa Specials</h1><p>Good things happen when we get together.</p></div></section>
+ <section class="page-lead"><div><div class="script">Made for sharing</div><div class="kicker">THE MAVÉA COMMUNITY</div></div><div><h2 class="display">Little moments.<br>Lovely memories.</h2><p class="copy">Keep an eye on this space for gatherings, creative workshops, seasonal treats and special offers during your stay.</p></div></section>
+ <section class="guide-grid">
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1100&q=88" alt="Intimate outdoor gathering" loading="lazy"></div><div class="card-meta"><span>01 / Gather together</span><span>Shared moments</span></div><h2>Events & gatherings</h2><p>Small get-togethers, shared tables and special evenings at Mavéa.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1100&q=88" alt="Creative hands-on workshop" loading="lazy"></div><div class="card-meta"><span>02 / Make something</span><span>Creative souls</span></div><h2>Creative workshops</h2><p>Hands-on sessions and creative collaborations with local makers.</p></article>
+  <article class="guide-card reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1100&q=88" alt="Warm light over a tropical landscape" loading="lazy"></div><div class="card-meta"><span>03 / Stay a little longer</span><span>Little extras</span></div><h2>Special offers</h2><p>Occasional little extras and offers for guests who want more time by the coast.</p></article>
+ </section>
+ <p class="guide-note">Events, workshop dates and offers will appear here as soon as they are confirmed.</p>
+</section>
+
+<section class="page" id="review">
+ <section class="page-hero"><img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=2200&q=90" alt="Golden light over a peaceful coastline"><div class="page-hero-content"><div class="kicker">A MEMORY TO TAKE HOME</div><h1>Leave a Review</h1><p>Your words help our little place grow.</p></div></section>
+ <section class="review-section"><div class="review-card"><div class="script">Thank you for being here</div><h2 class="display">Did you enjoy<br>your stay?</h2><p class="copy">If Mavéa felt like a little home away from home, we’d love to hear about it. Your feedback means the world to us and helps future guests find their way here.</p><span class="button-filled" aria-label="Google reviews link will be added when the profile is ready">Google Reviews <span>↗</span></span><p style="font-size:9px;letter-spacing:.08em;color:#877966;margin:20px auto 0">Our Google review link will be connected as soon as the Mavéa profile is live.</p></div></section>
+</section>
+</main>
+
+<footer class="footer">
+ <div class="footer-inner">
+  <div class="footer-main">
+   <div><div class="footer-logo">MAVÉA</div><div class="footer-sub">BOUTIQUE STAYS · SRI LANKA</div></div>
+   <div class="footer-mantra">Come for the coast.<br>Stay for the feeling.</div>
+   <nav class="footer-nav" aria-label="Footer navigation"><a href="#explore">Explore Hiriketiya</a><a href="#eat">Eat & Drink</a><a href="#things">Things to do</a><a href="#services">Guest Services</a><a href="#specials">Mavéa Specials</a><a href="#review">Leave a Review</a></nav>
+  </div>
+  <div class="footer-bottom"><span>© <span id="year"></span> MAVÉA BOUTIQUE STAYS</span><span>HIRIKETIYA · SRI LANKA</span><span>STAY A LITTLE LONGER.</span></div>
+ </div>
+</footer>
+
+<script>
+(() => {
+ const pages=[...document.querySelectorAll('.page')];
+ const nav=document.getElementById('mainNav');
+ const toggle=document.getElementById('menuToggle');
+ const links=[...document.querySelectorAll('.main-nav a[data-page]')];
+ const revealObserver=('IntersectionObserver' in window)?new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}});
+ },{threshold:.12}):null;
+ function observeReveals(){document.querySelectorAll('.page.active .reveal:not(.visible)').forEach(el=>revealObserver?revealObserver.observe(el):el.classList.add('visible'))}
+ function closeMenu(){nav.classList.remove('open');document.body.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';toggle.setAttribute('aria-label','Open navigation')}
+ function showPage(id,scroll=true){
+  const key=document.getElementById(id)&&document.getElementById(id).classList.contains('page')?id:'home';
+  pages.forEach(page=>page.classList.toggle('active',page.id===key));
+  links.forEach(link=>link.classList.toggle('active',link.dataset.page===key));
+  closeMenu();observeReveals();
+  if(scroll)window.scrollTo({top:0,behavior:'smooth'});
+ }
+ function route(){showPage(location.hash.replace('#','')||'home',false)}
+ window.addEventListener('hashchange',route);
+ document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{
+  const id=link.getAttribute('href').slice(1);
+  const page=document.getElementById(id);
+  if(page&&page.classList.contains('page')){
+   event.preventDefault();history.pushState(null,'','#'+id);showPage(id,true);
+  }else if(id==='contact'){
+   event.preventDefault();history.pushState(null,'','#contact');document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  }
+ }));
+ toggle.addEventListener('click',()=>{
+  const open=!nav.classList.contains('open');
+  nav.classList.toggle('open',open);document.body.classList.toggle('menu-open',open);
+  toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'×':'☰';
+  toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+ });
+ document.getElementById('year').textContent=new Date().getFullYear();
+ route();observeReveals();
+})();
+</script>
+</body>
+</html>
